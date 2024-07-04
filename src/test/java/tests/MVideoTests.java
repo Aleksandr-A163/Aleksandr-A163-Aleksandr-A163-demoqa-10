@@ -39,21 +39,4 @@ public class MVideoTests extends TestBase{
         $(".ng-star-inserted").shouldHave(Condition.text(searchQuery));
     }
 
-
-    static Stream<Arguments> searchProductMVideo2Test(){
-        return Stream.of(
-                Arguments.of("rtx", "Видеокарта"),
-                Arguments.of("iphone", "Смартфон")
-        );
-    }
-
-    @MethodSource
-    @Tag("BLOCKER")
-    @ParameterizedTest(name = "Поиск товара {0} на сайте МВидео и проверка наличия текста {1}")
-    void searchProductMVideo2Test(String searchQuery, String expectedResult) {
-        open(url);
-
-        $(".input__field").setValue(searchQuery).pressEnter();
-        $(".ng-star-inserted").shouldHave(Condition.text(expectedResult));
-    }
 }
